@@ -53,11 +53,17 @@
 
 					<i class="icofont-navigation-menu"></i>
 				</span>
-				<img src="{{asset('front/logo/logo_big.jpg')}}" class="img-fluid d-xl-inline d-lg-inline d-md-none d-sm-none d-none">
+				<a href="{{route('mainpage')}}">
+					<img src="{{asset('front/logo/logo_big.jpg')}}" class="img-fluid d-xl-inline d-lg-inline d-md-none d-sm-none d-none">
+				</a>
 
-				<img src="{{asset('front/logo/logo_med.jpg')}}" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px">
+				<a href="{{route('mainpage')}}">
+					<img src="{{asset('front/logo/logo_med.jpg')}}" class="img-fluid d-xl-none d-lg-none d-md-inline d-sm-none d-none" style="width: 100px">
+				</a>
 
-				<img src="{{asset('front/logo/logo.jpg')}}" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px">
+				<a href="{{route('mainpage')}}">
+					<img src="{{asset('front/logo/logo.jpg')}}" class="img-fluid d-xl-none d-lg-none d-md-none d-sm-inline d-inline pl-2" style="width: 30px">
+				</a>
 			</div>
 			
 			<!-- Search Bar -->

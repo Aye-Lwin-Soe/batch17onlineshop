@@ -55,7 +55,7 @@ $(document).ready(function(){
 
           html += `<tr>
               <td>
-                <button class="btn btn-outline-danger remove btn-sm" style="border-radius: 50%"> 
+                <button class="btn btn-outline-danger remove btn-sm" data-id="${i}" style="border-radius: 50%"> 
                   <i class="icofont-close-line"></i> 
                 </button> 
               </td>
@@ -67,15 +67,15 @@ $(document).ready(function(){
                 <p> Code Number</p>
               </td>
               <td>
-                <button class="btn btn-outline-secondary plus_btn"> 
+                <button class="btn btn-outline-secondary plus_btn" data-id=${id}> 
                   <i class="icofont-plus"></i> 
                 </button>
               </td>
               <td>
-                <p> 1 </p>
+                <p> ${qty} </p>
               </td>
               <td>
-                <button class="btn btn-outline-secondary minus_btn"> 
+                <button class="btn btn-outline-secondary minus_btn" data-id=${i}> 
                   <i class="icofont-minus"></i>
                 </button>
               </td>
@@ -107,7 +107,7 @@ $(document).ready(function(){
                 </button>
               </td>
             </tr>`;
-        //html+=`<tr><td colspan="5" style="text-align:center">Total</td><td colspan="2">${total}</td></tr><tr><td colspan="7" style="text-align:center"><button class="checkout">Checkout</button></td></tr>`;
+
         $('#shoppingcart_table').html(html);
         $('#shoppingcart_tfoot').html(tfoot);
       }
@@ -141,5 +141,70 @@ $(document).ready(function(){
       }
     }
 
+
+    $('#shoppingcart_table').on('click','.plus_btn',function(){
+      var id = $(this).data('id');
+      //alert(id);
+      var item = localStorage.getItem('mycart');
+      if(item){
+        var itemObject = JSON.parse(item);
+        var itemArr = itemObject.itemlist;
+        $.each(itemArr,function(i,v){
+          if(id==v.id)
+          {
+            var qty=v.qty++;
+            var itemString = JSON.stringify(itemObject);
+            localStorage.setItem('mycart',itemString);
+            showtable();
+            showcart();
+          }
+          
+        })
+        
+      }
+      
+    });
+
+
+    $('#shoppingcart_table').on('click','.remove',function(){
+            var id = $(this).data('id');
+            var itemString = localStorage.getItem('mycart');
+            if(itemString)
+            {
+                var itemArray = JSON.parse(itemString);
+                var itemArr = itemArray.itemlist;
+                itemArr.splice(id,1);
+                var itemData = JSON.stringify(itemArray);
+                localStorage.setItem('mycart',itemData);
+                showtable();
+                showcart();
+            }
+    });
+
+    $('#shoppingcart_table').on('click','.minus_btn',function(){
+           // var id = $(this).data('id');
+            var qtyid = $(this).data('id');
+            alert(qtyid);
+            var itemString = localStorage.getItem('mycart');
+            if(itemString){
+                var itemArray = JSON.parse(itemString);
+                var itemArr = itemArray.itemlist;
+                $.each(itemArr,function(i,v){
+                    if(qtyid==i){
+
+                    var qty=v.qty--;
+
+                    if(qty=='1'){
+                        itemArr.splice(i,1);
+                    }
+                    var itemData = JSON.stringify(itemArray);
+                    localStorage.setItem('mycart',itemData);
+                    showtable();
+                    showcart();
+                    }
+                    
+                })
+            }
+    })
 
 })
