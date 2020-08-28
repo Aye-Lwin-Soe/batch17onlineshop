@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  //showcart();
+  showcart();
   showtable();
   $('.addtocartBtn').click(function(){
     var id = $(this).data('id');
@@ -125,5 +125,21 @@ $(document).ready(function(){
       $('.noneshoppingcart_div').html(noshopping);
       }
     }
+
+
+    function showcart()
+    {
+      var item = localStorage.getItem('mycart');
+      if(item){
+        var itemObject = JSON.parse(item);
+        var itemArr = itemObject.itemlist;
+        var qtyy=0;
+        $.each(itemArr,function(i,v){
+          qtyy += v.qty;
+        })
+        $('.cartNoti').text(qtyy);
+      }
+    }
+
 
 })

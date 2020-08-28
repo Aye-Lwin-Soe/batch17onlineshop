@@ -93,7 +93,7 @@
 
 				<a href="{{route('shoppingcartpage')}}" class="text-decoration-none d-xl-inline d-lg-inline d-md-inline d-sm-none d-none shoppingcartLink"> 
 					<i class="icofont-shopping-cart"></i> 
-					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 1 </span>
+					<span class="badge badge-pill badge-light badge-notify cartNotistyle cartNoti"> 0 </span>
 					<span> 4,800 Ks </span>
 				</a>
 
