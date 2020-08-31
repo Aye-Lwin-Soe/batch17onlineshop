@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
 
 class BackendController extends Controller
 {
@@ -11,5 +12,11 @@ class BackendController extends Controller
     	// $route=Route::current();
     	// dd($route); //လက်ရှိဟာကိုထုတ်ကြည့်တာ dd dieနဲ့တူတယ်
     	return view('Backend.dashboard');//view user show place
+    }
+
+    public function orderlist($value='')
+    {
+      $orders = Order::all();
+      return view('Backend.orderlist',compact('orders'));
     }
 }

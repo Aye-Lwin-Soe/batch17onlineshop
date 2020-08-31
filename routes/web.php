@@ -22,6 +22,7 @@ Route::get('register','PageController@registerfun')->name('registerpage');
 Route::get('shoppingcart','PageController@shoppingcartfun')->name('shoppingcartpage');
 Route::get('subcategory','PageController@subcategoryfun')->name('subcategorypage');
 Route::get('backendroute','BackendController@backendfun')->name('backendpage');
+Route::get('orderlists','BackendController@orderlist')->name('orderlist');
 
 Route::resource('items','ItemController');
 //php artisan make:controller ItemController -r resource  7ခုရလိမ့်မယ်
@@ -29,3 +30,4 @@ Route::resource('items','ItemController');
 Route::resource('brands','BrandController');
 Route::resource('categories','CategoryController');
 Route::resource('subcategories','SubcategoryController');
+Route::resource('orders','OrderController');

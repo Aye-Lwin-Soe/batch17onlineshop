@@ -1,6 +1,11 @@
 $(document).ready(function(){
   showcart();
   showtable();
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
   $('.addtocartBtn').click(function(){
     var id = $(this).data('id');
     var name = $(this).data('name');
@@ -263,6 +268,20 @@ $(document).ready(function(){
               
             })
           }
-        })
+        });
+
+  $('#shoppingcart_tfoot').on('click','.checkoutbtn',function(){
+    var notes = $('#notes').val();
+    var itemString = localStorage.getItem('mycart');
+    var itemArray = JSON.parse(itemString);
+    var itemArr = itemArray.itemlist;
+    $.post('/orders',{notes:notes,itemArr:itemArr},function(response){
+      if(response){
+        alert(response);
+        localStorage.clear();
+        location.href="/";
+      }
+    });
+  })
 
 })
