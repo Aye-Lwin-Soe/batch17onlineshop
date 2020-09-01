@@ -29,7 +29,7 @@
                     <td>{{$order->user->name}}</td>
                     <td>{{$order->total}}</td>
                     <td>
-                      <a href="#" class="btn btn-primary">Detail</a>
+                      <a href="{{route('orderdetail',$order->id)}}" class="btn btn-primary">Detail</a>
                     </td>
                   </tr>
 

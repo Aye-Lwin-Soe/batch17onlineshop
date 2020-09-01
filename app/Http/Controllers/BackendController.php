@@ -19,4 +19,11 @@ class BackendController extends Controller
       $orders = Order::all();
       return view('Backend.orderlist',compact('orders'));
     }
+
+    public function orderdetail($id)
+    {
+       $orderdetail = Order::find($id);
+
+       return view('Backend.orderdetail',compact('orderdetail'));
+    }
 }
