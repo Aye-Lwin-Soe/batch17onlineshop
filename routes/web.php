@@ -24,10 +24,16 @@ Route::get('subcategory','PageController@subcategoryfun')->name('subcategorypage
 Route::get('backendroute','BackendController@backendfun')->name('backendpage');
 Route::get('orderlists','BackendController@orderlist')->name('orderlist');
 
-Route::resource('items','ItemController');
+Route::middleware('auth')->group(function(){
+  Route::resource('items','ItemController');
+  Route::resource('brands','BrandController');
+  Route::resource('categories','CategoryController');
+  Route::resource('subcategories','SubcategoryController');
+  Route::resource('orders','OrderController');
+});
 //php artisan make:controller ItemController -r resource  7ခုရလိမ့်မယ်
 
-Route::resource('brands','BrandController');
-Route::resource('categories','CategoryController');
-Route::resource('subcategories','SubcategoryController');
-Route::resource('orders','OrderController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

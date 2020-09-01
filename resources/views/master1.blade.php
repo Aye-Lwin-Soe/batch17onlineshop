@@ -82,7 +82,7 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-10">
-						<a href="{{route('loginpage')}}" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right"> Login | Sign-up </a>
+						<a href="{{route('login')}}" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none loginLink float-right"> Login | Sign-up </a>
 
 						
 					</div>
@@ -512,7 +512,7 @@
 			</div>
 			<hr>
 
-			<a href="#"> Login | Signup</a>
+			<a href="{{route('login')}}"> Login | Signup</a>
 			<hr>
 
 			<a href="#"> Cart [ <span class="cartNoti"> 1 </span> ]  </a>
