@@ -1,10 +1,17 @@
 @extends('master1')
 @section('content')
+<div class="jumbotron jumbotron-fluid subtitle">
+  		<div class="container">
+    		<h1 class="text-center text-white"> Login </h1>
+  		</div>
+	</div>
+
 	<div class="container my-5">
 
 		<div class="row justify-content-center">
 			<div class="col-5">
-				<form action="signin" method="POST">
+				<form action="{{route('login')}}" method="POST">
+					@csrf
 		      		<div class="form-group">
 		      			<label class="small mb-1" for="inputEmailAddress">Email</label>
 		      			<input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" name="email" />

@@ -121,6 +121,8 @@ $(document).ready(function(){
 
         $('#shoppingcart_table').html(html);
         $('#shoppingcart_tfoot').html(tfoot);
+        var tprice = total;
+        $('.tprice').html(tprice.toLocaleString()+' Ks');
       }else{
         var noshopping = `<div class="col-12">
         <h5 class="text-center"> There are no items in this cart </h5>
@@ -134,6 +136,7 @@ $(document).ready(function(){
         </div>`;
         
         $('.noneshoppingcart_div').html(noshopping);
+
         
       }
     }

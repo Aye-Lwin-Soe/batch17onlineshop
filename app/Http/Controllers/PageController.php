@@ -26,7 +26,7 @@ class PageController extends Controller
     {
     	return view('itemdetail');
     }
-    function lgoinfun($value='')
+    function loginfun($value='')
     {
     	return view('login');//('foldername.filename')
     }
