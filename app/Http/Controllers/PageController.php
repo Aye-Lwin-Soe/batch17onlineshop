@@ -26,10 +26,10 @@ class PageController extends Controller
         $brand = Brand::find($id);
     	return view('brand',compact('brand'));
     }
-    function itemdetailfun($value='')
+    function itemdetailfun($id)
     {
-
-    	return view('itemdetail');
+        $item = Item::find($id);
+    	return view('itemdetail',compact('item'));
     }
     function loginfun($value='')
     {

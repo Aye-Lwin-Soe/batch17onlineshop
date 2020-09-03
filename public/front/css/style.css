@@ -649,6 +649,120 @@ button.btnMain:hover{
      color: #0e8ce4
  }
 
+ .bbb_viewed_title_container1 {
+     border-bottom: solid 1px #dadada
+ }
+
+ .bbb_viewed_title1 {
+     margin-bottom: 14px
+ }
+
+ .bbb_viewed_nav_container1 {
+    position: absolute;
+    top: 14px;
+    right: 6px;
+ }
+
+ .bbb_viewed_nav1 {
+     display: inline-block;
+     cursor: pointer
+ }
+
+ .bbb_viewed_nav1 i {
+     color: #dadada;
+     font-size: 18px;
+     padding: 5px;
+     -webkit-transition: all 200ms ease;
+     -moz-transition: all 200ms ease;
+     -ms-transition: all 200ms ease;
+     -o-transition: all 200ms ease;
+     transition: all 200ms ease
+ }
+
+ .bbb_viewed_nav1:hover i {
+     color: #606264
+ }
+
+ .bbb_viewed_prev1 {
+     margin-right: 15px
+ }
+
+ .bbb_viewed_slider_container1 {
+     padding-top: 50px
+ }
+
+ .bbb_viewed_item1 {
+     width: 100%;
+     background: #FFFFFF;
+     border-radius: 2px;
+     padding-top: 25px;
+     padding-bottom: 25px;
+     padding-left: 30px;
+     padding-right: 30px
+ }
+
+ .bbb_viewed_image1 {
+     width: 115px;
+     height: 115px
+ }
+
+ .bbb_viewed_image1 img {
+     display: block;
+     max-width: 100%
+ }
+
+ .bbb_viewed_content1 {
+     width: 100%;
+     margin-top: 25px
+ }
+
+ .bbb_viewed_price1 {
+     font-size: 16px;
+     color: #000000;
+     font-weight: 500
+ }
+
+ .bbb_viewed_item.discount1 .bbb_viewed_price1 {
+     color: #df3b3b
+ }
+
+ .bbb_viewed_price1 span {
+     position: relative;
+     font-size: 12px;
+     font-weight: 400;
+     color: rgba(0, 0, 0, 0.6);
+     margin-left: 8px
+ }
+
+ .bbb_viewed_price1 span::after {
+     display: block;
+     position: absolute;
+     top: 6px;
+     left: -2px;
+     width: calc(100% + 4px);
+     height: 1px;
+     background: #8d8d8d;
+     content: ''
+ }
+
+ .bbb_viewed_name1 {
+     margin-top: 3px
+ }
+
+ .bbb_viewed_name1 a {
+     font-size: 14px;
+     color: #000000;
+     -webkit-transition: all 200ms ease;
+     -moz-transition: all 200ms ease;
+     -ms-transition: all 200ms ease;
+     -o-transition: all 200ms ease;
+     transition: all 200ms ease
+ }
+
+ .bbb_viewed_name1 a:hover {
+     color: #0e8ce4
+ }
+
  .item_marks {
      position: absolute;
      top: 18px;

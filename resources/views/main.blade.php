@@ -113,7 +113,7 @@
 		                    <div class="pad15">
 		                    	<img src="{{asset($item->photo)}}" class="img-fluid">
 		                        <p class="text-truncate">
-		                        	{{$item->name}}
+		                        	<a href="{{route('itemdetailpage',$item->id)}}"> {{$item->name}}</a>
 		                        </p>
 		                        <p class="item-price">
 		                        	<strike>250,000 Ks </strike> 

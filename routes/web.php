@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','PageController@mainfun')->name('mainpage');
 Route::get('itembybrand/{id}','PageController@brandfun')->name('brandpage');
-Route::get('itemdetail','PageController@itemdetailfun')->name('itemdetailpage');
+Route::get('itemdetail/{id}','PageController@itemdetailfun')->name('itemdetailpage');
 Route::get('promotion','PageController@promotionfun')->name('promotionpage');
 Route::get('shoppingcart','PageController@shoppingcartfun')->name('shoppingcartpage');
 Route::get('subcategory','PageController@subcategoryfun')->name('subcategorypage');
