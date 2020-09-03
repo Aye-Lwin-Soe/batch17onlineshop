@@ -43,7 +43,11 @@
          						<td>
          							<a href="" class="btn btn-primary">Detail</a>
          							<a href="{{route('categories.edit',$category->id)}}" class="btn btn-info">Edit</a>
-         							<a href="" class="btn btn-danger">Delete</a>
+                                    <form action="{{route('categories.destroy',$category->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
          						</td>
          					</tr>
 

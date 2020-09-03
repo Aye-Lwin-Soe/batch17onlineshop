@@ -142,5 +142,10 @@ class BrandController extends Controller
     public function destroy(Brand $brand)
     {
         //
+       // dd($brand);
+        unlink($brand->photo);
+        $brand->delete();
+
+        return redirect()->route('brands.index');
     }
 }

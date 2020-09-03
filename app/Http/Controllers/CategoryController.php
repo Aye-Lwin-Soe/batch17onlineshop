@@ -142,5 +142,9 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        unlink($category->photo);
+        $category->delete();
+
+        return redirect()->route('categories.index');
     }
 }
