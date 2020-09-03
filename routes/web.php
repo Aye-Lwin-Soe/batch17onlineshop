@@ -29,7 +29,9 @@ Route::middleware('role:Admin')->group(function(){
 
   Route::get('backendroute','BackendController@backendfun')->name('backendpage');
   Route::get('orderlists','BackendController@orderlist')->name('orderlist');
-  Route::get('orderdetail/{id}','BackendController@orderdetail')->name('orderdetail');
+  Route::get('orderlists/{id}','BackendController@orderdetail')->name('orderdetail');
+  Route::get('report','BackendController@report')->name('report');
+  Route::post('searchreport','BackendController@reportsearch')->name('reportsearch');
 });
 //php artisan make:controller ItemController -r resource  7ခုရလိမ့်မယ်
 

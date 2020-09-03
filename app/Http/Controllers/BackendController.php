@@ -26,4 +26,28 @@ class BackendController extends Controller
 
        return view('Backend.orderdetail',compact('orderdetail'));
     }
+
+    public function report(){
+      return view('Backend.report');
+    }
+
+    public function reportsearch(Request $request)
+    {
+      $startdate = $request->startdate;
+      $enddate = $request->enddate;
+      $order = Order::whereBetween('orderdate',[$startdate,$enddate])->get();
+      $user;
+      foreach($order as $o){
+        $user = $o->user->name;
+        $items = $o->items;
+      }
+
+      foreach ($items as $key => $value) {
+        $qty = $value->pivot->qty;
+      
+      }
+     
+      //dd($user);
+      return response()->json(['order'=>$order,'user'=>$user,'qty'=>$qty]);
+    }
 }

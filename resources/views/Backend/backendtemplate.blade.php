@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   <title>SB Admin 2 - Dashboard</title>
 
@@ -59,13 +60,13 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
     
-      <li class="nav-item">
+      <li class="nav-item {{ (request()->segment(1) == 'categories')? 'active' : '' }}">
         <a class="nav-link" href="{{route('categories.index')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Category</span></a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item {{ (Request::segment(1) =='brands') ? 'active' : ''  }}">
         <a class="nav-link" href="{{route('brands.index')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Brand</span></a>
@@ -77,14 +78,14 @@
       
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
+      <li class="nav-item {{ (Request::segment(1) == 'subcategories') ? 'active':'' }}">
         <a class="nav-link" href="{{route('subcategories.index')}}">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>SubCategory</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
-      <li class="nav-item">
+      <li class="nav-item {{ (Request::segment(1) == 'items')? 'active':''}}">
         <a class="nav-link" href="{{route('items.index')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>Item</span></a>
@@ -92,10 +93,18 @@
 
       <hr class="sidebar-divider">
 
-       <li class="nav-item">
+       <li class="nav-item {{ (Request::segment(1) == 'orderlists')?'active':''}}">
         <a class="nav-link" href="{{route('orderlist')}}">
           <i class="fas fa-fw fa-table"></i>
           <span>Order</span></a>
+      </li>
+
+      <hr class="sidebar-divider">
+
+       <li class="nav-item {{ (Request::segment(1) == 'report')?'active':''}}">
+        <a class="nav-link" href="{{route('report')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Order Report</span></a>
       </li>
 
       <!-- Divider -->
@@ -367,7 +376,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('backend/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{asset('backend/js/demo/chart-pie-demo.js')}}"></script>
-
+  @yield('script')
 </body>
 
 </html>

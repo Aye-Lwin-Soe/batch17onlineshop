@@ -90,19 +90,20 @@
                     
                 @endif
                 <a href="{{route('loginpage')}}" class="d-xl-block d-lg-block d-md-block d-none text-decoration-none loginLink float-right"> Login&nbsp;|&nbsp;</a> 
-            
+              @php $dat = null; @endphp
                 
             @else
                 
                 <a style="color: #EC7094;" id="navbarDropdown" class="d-xl-block d-lg-block d-md-block d-none  text-decoration-none float-right dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                 </a>
-
+                @php $dat = Auth::user()->getRoleNames()[0];  @endphp
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item log" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
+
                   </a>
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -438,10 +439,21 @@
     <script type="text/javascript" src="{{asset('front/js/owl.carousel.js')}}"></script>
 
     <script type="text/javascript">
-      var auth = `{!!Auth::user()->roles->pluck('name')[0]!!}`;
+      var AuthUser = {{ auth()->check() ? 'true' : 'false' }};
+//console.log(AuthUser);
+      if(AuthUser){
+       
+         var auth = `{{$dat}}`;
+     // alert(auth);
+    
+    }else{
+     // alert('b');
+    }
+        
+     
+    
     </script>
     <script type="text/javascript" src="{{asset('front/js/localstorage_custom.js')}}"></script>
-   
-    @yield('script')
+  
 </body>
 </html>

@@ -36,9 +36,8 @@
                                 <th>{{$subcategory->category->name}}</th>
          						<td>{{$subcategory->name}}</td>
          						<td>
-         							<a href="" class="btn btn-primary">Detail</a>
          							<a href="{{route('subcategories.edit',$subcategory->id)}}" class="btn btn-info">Edit</a>
-         							<form action="{{route('subcategories.destroy',$subcategory->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')">
+         							<form action="{{route('subcategories.destroy',$subcategory->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Delete</button>                    

@@ -23,7 +23,7 @@
          				<th>Code No</th>
          				<th>Name</th>
          				<th>Price</th>		
-         				
+         				<th>Photo</th>
          				<th>Action</th>
          			</thead>
          			<tbody>
@@ -39,11 +39,11 @@
          						<td>{{$item->codeno}}</td>
          						<td>{{$item->name}}</td>
          						<td>{{$item->price}}</td>
-         					
+         					    <td><img src="{{asset($item->photo)}}" width="150px"></td>
          						<td>
          							<a href="" class="btn btn-primary">Detail</a>
          							<a href="{{route('items.edit',$item->id)}}" class="btn btn-info">Edit</a>
-         							<form action="{{route('items.destroy',$item->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')">
+         							<form action="{{route('items.destroy',$item->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>                    

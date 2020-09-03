@@ -37,7 +37,8 @@ class PageController extends Controller
     }
     function promotionfun($value='')
     {
-    	return view('promotion');
+        $items = Item::where('discount','>',0)->get();
+    	return view('promotion',compact('items'));
     }
     function registerfun($value='')
     {

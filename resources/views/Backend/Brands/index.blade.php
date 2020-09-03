@@ -6,7 +6,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Item List</h1>
+            <h1 class="h3 mb-0 text-gray-800">Brand List</h1>
             <div class="text-right">
             	<a href="{{route('brands.create')}}"  class="btn btn-success">
             		Add New Brands
@@ -37,13 +37,13 @@
                                 
                                 <td>{{$brand->name}}</td>
                                 <td>
-                                    <img src="{{asset($brand->photo)}}" class="img-fluid w-25">                 
+                                    <img src="{{asset($brand->photo)}}" width="150px">                 
                                 </td>
                             
                                 <td>
-                                    <a href="" class="btn btn-primary">Detail</a>
+                                   
                                     <a href="{{route('brands.edit',$brand->id)}}" class="btn btn-info">Edit</a>
-                                    <form action="{{route('brands.destroy',$brand->id)}}" method="post" onsubmit="return confirm('Are you Sure want to Delete!')">
+                                    <form action="{{route('brands.destroy',$brand->id)}}" method="post" onsubmit="return confirm('Are you Sure want to Delete!')" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

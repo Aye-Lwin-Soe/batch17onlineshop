@@ -37,13 +37,13 @@
          						
          						<td>{{$category->name}}</td>
          						<td>
-                                    <img src="{{asset($category->photo)}}" class="img-fluid w-25">                 
+                                    <img src="{{asset($category->photo)}}" width="150px">                 
                                 </td>
          					
          						<td>
-         							<a href="" class="btn btn-primary">Detail</a>
+         						
          							<a href="{{route('categories.edit',$category->id)}}" class="btn btn-info">Edit</a>
-                                    <form action="{{route('categories.destroy',$category->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')">
+                                    <form action="{{route('categories.destroy',$category->id)}}" method="post" onsubmit="return confirm('Are you Sure Want to Delete!')" class="d-inline-block">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>
