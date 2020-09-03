@@ -1,5 +1,6 @@
 @extends('master1')
 @section('content')
+
 	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   		<ol class="carousel-indicators">
     		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -730,59 +731,14 @@
 
 	    <!-- Brand Store Item -->
 	    <section class="customer-logos slider mt-5">
+	    	@foreach($brands as $brand)
 	      	<div class="slide">
-	      		<a href="">
-		      		<img src="{{asset('front/image/brand/loacker_logo.jpg')}}">
+	      		<a href="{{route('brandpage',$brand->id)}}">
+		      		<img src="{{asset($brand->photo)}}">
 		      	</a>
 	      	</div>
+	      @endforeach
 	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/lockandlock_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/apple_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/giordano_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/saisai_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/brands_logo.png')}}">
-	      		</a>	
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/acer_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/bella_logo.png')}}">
-	      		</a>
-	      	</div>
-	      	
-	      	<div class="slide">
-	      		<a href="">
-	      			<img src="{{asset('front/image/brand/ariel_logo.png')}}">
-	      		</a>
-	      	</div>
 	   	</section>
 
 	    <div class="whitespace d-xl-block d-lg-block d-md-none d-sm-none d-none"></div>
