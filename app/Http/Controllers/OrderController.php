@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Auth;
 class OrderController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:Customer');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +52,7 @@ class OrderController extends Controller
         $order->orderdate = date('Y-m-d');
         $order->note  = $notes;
         $order->total = $total;
-        $order->user_id = 1;
+        $order->user_id = Auth::id();
         $order->save();
 
         foreach ($items as $value) {

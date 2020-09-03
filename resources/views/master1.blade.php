@@ -99,7 +99,7 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}"
+                  <a class="dropdown-item log" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
@@ -437,7 +437,11 @@
     <!-- Owl Carousel -->
     <script type="text/javascript" src="{{asset('front/js/owl.carousel.js')}}"></script>
 
-
+    <script type="text/javascript">
+      var auth = `{!!Auth::user()->roles->pluck('name')[0]!!}`;
+    </script>
     <script type="text/javascript" src="{{asset('front/js/localstorage_custom.js')}}"></script>
+   
+    @yield('script')
 </body>
 </html>

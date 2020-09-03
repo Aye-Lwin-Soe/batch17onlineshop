@@ -7,6 +7,7 @@ $(document).ready(function(){
     }
 });
   $('.addtocartBtn').click(function(){
+   // alert(role);
     var id = $(this).data('id');
     var name = $(this).data('name');
     var price = $(this).data('price');
@@ -53,6 +54,7 @@ $(document).ready(function(){
         var j=1;
         var total=0;
         var tfoot = '';
+        var role;
         $.each(itemArr,function(i,v){
           var id=v.id;
           var name = v.name;
@@ -61,6 +63,7 @@ $(document).ready(function(){
           var qty = v.qty;
           var subtotal = qty*price;
           total+=parseInt(subtotal);
+          role = v.role;
 
           html += `<tr>
           <td>
@@ -111,13 +114,25 @@ $(document).ready(function(){
         <tr> 
         <td colspan="5"> 
         <textarea class="form-control" id="notes" placeholder="Any Request..."></textarea>
-        </td>
-        <td colspan="3">
-        <button class="btn btn-secondary btn-block mainfullbtncolor checkoutbtn"> 
+        </td>`;
+       
+        if(auth=='Customer'){
+       tfoot+=`<td colspan="3"><button class="btn btn-secondary btn-block mainfullbtncolor checkoutbtn"> 
         Check Out 
-        </button>
-        </td>
-        </tr>`;
+        </button></td></tr>`;
+      }else if(auth=='Admin'){
+        tfoot+=`<td colspan="3"><button class="btn btn-secondary btn-block mainfullbtncolor checkoutbtn"> 
+        Admin Not Check Out  
+        </button></td></tr>`;
+        localStorage.clear();
+      }else{
+        
+         tfoot+= `<td colspan="3"><a href="loginform" class="btn btn-secondary btn-block mainfullbtncolor"> 
+      
+        Login To Check Out 
+        </a></td></tr>`;
+         }
+        
 
         $('#shoppingcart_table').html(html);
         $('#shoppingcart_tfoot').html(tfoot);
@@ -129,7 +144,7 @@ $(document).ready(function(){
         </div>
 
         <div class="col-12 mt-5 ">
-        <a href="{{route('subcategorypage')}}" class="btn btn-secondary mainfullbtncolor px-3" > 
+        <a href="/" class="btn btn-secondary mainfullbtncolor px-3" > 
         <i class="icofont-shopping-cart"></i>
         Continue Shopping 
         </a>
@@ -218,7 +233,7 @@ $(document).ready(function(){
         </div>
 
         <div class="col-12 mt-5 ">
-        <a href="{{route('subcategorypage')}}" class="btn btn-secondary mainfullbtncolor px-3" > 
+        <a href="/" class="btn btn-secondary mainfullbtncolor px-3" > 
         <i class="icofont-shopping-cart"></i>
         Continue Shopping 
         </a>
@@ -259,7 +274,7 @@ $(document).ready(function(){
                   </div>
 
                   <div class="col-12 mt-5 ">
-                  <a href="{{route('subcategorypage')}}" class="btn btn-secondary mainfullbtncolor px-3" > 
+                  <a href="/" class="btn btn-secondary mainfullbtncolor px-3" > 
                   <i class="icofont-shopping-cart"></i>
                   Continue Shopping 
                   </a>
@@ -285,6 +300,10 @@ $(document).ready(function(){
         location.href="/";
       }
     });
+  });
+
+  $('.log').on('click',function(){
+    localStorage.clear();
   })
 
 })

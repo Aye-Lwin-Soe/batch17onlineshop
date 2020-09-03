@@ -129,9 +129,10 @@
 																<li class="list-inline-item"><i class='bx bxs-star-half' ></i></li>
 															</ul>
 														</div>
-
+														
+														
 														<a href="#" class="addtocartBtn text-decoration-none" data-id="{{$item->id}}" data-name="{{$item->name}}" data-photo="{{$item->photo}}" data-price="{{$item->price}}">Add to Cart</a>
-
+														
 		                    </div>
 		                </div>
 		              @endforeach
