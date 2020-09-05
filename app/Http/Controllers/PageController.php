@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Item;
 use App\Brand;
 use App\Category;
+use App\Subcategory;
 
 class PageController extends Controller
 {
@@ -48,9 +49,11 @@ class PageController extends Controller
     {
     	return view('shoppingcart');
     }
-     function subcategoryfun($value='')
+     function subcategoryfun($id)
     {
-    	return view('subcategory');
+        $sub_category = Subcategory::find($id);
+        $subcategories = Subcategory::all();
+    	return view('subcategory',compact('subcategories','sub_category'));
     }
 
 }

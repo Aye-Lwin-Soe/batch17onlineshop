@@ -170,7 +170,7 @@
 				            		SubCategories
 				            	</h6>
 				            	@foreach($category->subcategories as $subcategory)
-				              	<li><a class="dropdown-item" href="#">{{$subcategory->name}}</a></li>
+				              	<li><a class="dropdown-item" href="{{route('subcategorypage',$subcategory->id)}}">{{$subcategory->name}}</a></li>
 				              	<!-- <li><a class="dropdown-item" href="#">Submenu0</a></li> -->
 				              @endforeach
 				            </ul>

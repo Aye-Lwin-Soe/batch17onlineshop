@@ -18,7 +18,7 @@ Route::get('itembybrand/{id}','PageController@brandfun')->name('brandpage');
 Route::get('itemdetail/{id}','PageController@itemdetailfun')->name('itemdetailpage');
 Route::get('promotion','PageController@promotionfun')->name('promotionpage');
 Route::get('shoppingcart','PageController@shoppingcartfun')->name('shoppingcartpage');
-Route::get('subcategory','PageController@subcategoryfun')->name('subcategorypage');
+Route::get('subcategory/{id}','PageController@subcategoryfun')->name('subcategorypage');
 Route::resource('orders','OrderController');
 
 Route::middleware('role:Admin')->group(function(){
