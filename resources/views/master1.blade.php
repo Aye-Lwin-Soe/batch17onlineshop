@@ -165,6 +165,7 @@
 			          			{{Illuminate\Support\Str::limit($category->name, $limit = 15)}}
 			          			<i class="icofont-rounded-right float-right"></i>
 			          		</a>
+                    @if(count($category->subcategories) > 0)
 				            <ul class="dropdown-menu">
 				            	<h6 class="dropdown-header">
 				            		SubCategories
@@ -174,6 +175,7 @@
 				              	<!-- <li><a class="dropdown-item" href="#">Submenu0</a></li> -->
 				              @endforeach
 				            </ul>
+                    @endif
 			          	</li>
 			          	<div class="dropdown-divider"></div>
 			          <?php endforeach;?>
