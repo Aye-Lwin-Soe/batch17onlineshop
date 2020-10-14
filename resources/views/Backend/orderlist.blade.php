@@ -18,6 +18,8 @@
                 <th>Voucher No</th>
                 <th>User</th>
                 <th>Total</th>
+                <th>Address</th>
+                <th>Phone No</th>
                 <th>Action</th> 
               </thead>
               <tbody>

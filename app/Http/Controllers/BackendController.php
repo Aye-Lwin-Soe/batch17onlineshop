@@ -35,19 +35,9 @@ class BackendController extends Controller
     {
       $startdate = $request->startdate;
       $enddate = $request->enddate;
-      $order = Order::whereBetween('orderdate',[$startdate,$enddate])->get();
-      $user;
-      foreach($order as $o){
-        $user = $o->user->name;
-        $items = $o->items;
-      }
-
-      foreach ($items as $key => $value) {
-        $qty = $value->pivot->qty;
-      
-      }
+      $order = Order::whereBetween('orderdate',[$startdate,$enddate])->with('user','items')->get();
      
       //dd($user);
-      return response()->json(['order'=>$order,'user'=>$user,'qty'=>$qty]);
+      return response()->json(['order'=>$order]);
     }
 }

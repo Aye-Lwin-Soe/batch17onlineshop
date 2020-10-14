@@ -60,7 +60,7 @@
           var html=''; var j=1;
           $.each(response.order,function(i,v){
             console.log(v);
-            html+=`<tr><td>${j++}</td><td>${v.voucherno}</td><td>${response.user}</td><td>${response.qty}</td><td>${v.total}</td></tr>`;
+            html+=`<tr><td>${j++}</td><td>${v.voucherno}</td><td>${v.user.name}</td><td>${v.items}</td><td>${v.total}</td></tr>`;
           });
           $('#tbody').html(html);
           $('.table').show();
